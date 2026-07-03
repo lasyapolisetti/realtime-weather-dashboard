@@ -126,8 +126,6 @@ Weather condition codes are mapped to readable weather descriptions and visual i
 
 ### Temperature Trend Chart
 
-> **Note:** Create a folder named `screenshots` in the repository and upload your project screenshots into that folder.
-
 Suggested structure:
 
 ```text
@@ -232,7 +230,7 @@ B.Tech Computer Science and Engineering Student
 VIT-AP University
 
 - GitHub: `@lasyapolisetti`
-- LinkedIn: `Lasya Polisetti`
+- LinkedIn: `Lasya Polisetty`
 
 ---
 

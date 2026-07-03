@@ -114,23 +114,17 @@ Weather condition codes are mapped to readable weather descriptions and visual i
 
 ### Dashboard Overview
 
-Add your main dashboard screenshot here:
 
-```markdown
-![WeatherPulse Dashboard](screenshots/dashboard.png)
-```
+<img width="1662" height="886" alt="image" src="https://github.com/user-attachments/assets/dd3bb319-63d3-4cf1-9af0-08409653548e" />
+
+
 
 ### Multi-City Weather Monitoring
 
-```markdown
-![Multi-City Weather Monitoring](screenshots/multi-city-view.png)
-```
+
+<img width="1607" height="497" alt="image" src="https://github.com/user-attachments/assets/06d80113-69a2-4e8d-81c2-77b806ce68da" />
 
 ### Temperature Trend Chart
-
-```markdown
-![Temperature Trend Chart](screenshots/temperature-trends.png)
-```
 
 > **Note:** Create a folder named `screenshots` in the repository and upload your project screenshots into that folder.
 

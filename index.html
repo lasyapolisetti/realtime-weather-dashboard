@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Animated Background Particles -->
+  <div class="bg-layer">
+    <div class="cloud-layer"></div>
+    <div class="particle" style="--x:10%;--d:8s;--s:6px"></div>
+    <div class="particle" style="--x:25%;--d:12s;--s:4px"></div>
+    <div class="particle" style="--x:45%;--d:7s;--s:8px"></div>
+    <div class="particle" style="--x:65%;--d:10s;--s:5px"></div>
+    <div class="particle" style="--x:80%;--d:9s;--s:7px"></div>
+    <div class="particle" style="--x:92%;--d:11s;--s:4px"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="dashboard-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🌐</span>
+        <div>
+          <h1>WeatherPulse</h1>
+          <p class="tagline">Real-Time Monitoring Dashboard</p>
+        </div>
+      </div>
+      <div class="header-controls">
+        <!-- Unit Toggle -->
+        <div class="unit-toggle" id="unitToggle">
+          <button class="unit-btn active" data-unit="C">°C</button>
+          <div class="toggle-slider"></div>
+          <button class="unit-btn" data-unit="F">°F</button>
+        </div>
+        <!-- Status Indicator -->
+        <div class="live-badge">
+          <span class="pulse-dot"></span> LIVE
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-main">
+
+    <!-- SEARCH BAR -->
+    <section class="search-section">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="cityInput" placeholder="Enter city name (e.g. Tokyo, Paris…)" autocomplete="off"/>
+        <button id="addCityBtn" class="add-btn">
+          <span>Add City</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+      <div class="popular-cities">
+        <span class="pop-label">Quick Add:</span>
+        <button class="quick-city" data-city="New York">New York</button>
+        <button class="quick-city" data-city="London">London</button>
+        <button class="quick-city" data-city="Tokyo">Tokyo</button>
+        <button class="quick-city" data-city="Sydney">Sydney</button>
+        <button class="quick-city" data-city="Dubai">Dubai</button>
+      </div>
+    </section>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-legends">
+        <span class="legend-item"><span class="dot normal"></span> Normal</span>
+        <span class="legend-item"><span class="dot heat"></span> Extreme Heat</span>
+        <span class="legend-item"><span class="dot humidity"></span> High Humidity</span>
+        <span class="legend-item"><span class="dot cold"></span> Extreme Cold</span>
+        <span class="legend-item"><span class="dot storm"></span> Storm Warning</span>
+      </div>
+      <div class="update-info">
+        <span id="lastUpdated">Last Updated: —</span>
+        <span class="divider">|</span>
+        <span id="nextUpdate">Next Update: 60s</span>
+        <div class="progress-ring-wrap">
+          <svg class="progress-ring" width="24" height="24">
+            <circle class="ring-bg" cx="12" cy="12" r="9"/>
+            <circle class="ring-fill" id="timerRing" cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CITY CARDS GRID -->
+    <section class="cards-grid" id="cardsGrid">
+      <!-- Cards injected by JS -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🌤️</div>
+        <p>Add a city above to start monitoring weather</p>
+      </div>
+    </section>
+
+    <!-- TEMPERATURE TREND CHART -->
+    <section class="chart-section" id="chartSection" style="display:none;">
+      <div class="chart-header">
+        <div>
+          <h2 class="chart-title">Temperature Trend</h2>
+          <p class="chart-sub">Last 6 hours — All monitored cities</p>
+        </div>
+        <div class="chart-controls">
+          <button class="chart-btn active" data-range="6h">6H</button>
+          <button class="chart-btn" data-range="12h">12H</button>
+          <button class="chart-btn" data-range="24h">24H</button>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="tempChart"></canvas>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="dashboard-footer">
+    <span>⚡ WeatherPulse — Weather data by Open-Meteo</span>
+    <span id="footerTime"></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
